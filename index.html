@@ -3,62 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Most popular Kodi Repository</title>
+    <title>Kodi Repository</title>
     <style>
         body {
             font-family: sans-serif;
-            background-color: #f0f0f0;
+            background-color: #f4f4f4;
+            margin: 0;
             padding: 20px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        h1 {
             color: #333;
-            text-align: center;
         }
-        ul {
-            list-style-type: none;
-            padding: 0;
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #007bff;
             margin-bottom: 20px;
         }
-        li {
-            background-color: #fff;
-            border: 1px solid #ddd;
-            margin-bottom: 5px;
-            padding: 10px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        li a {
-            color: #0078d7;
-            text-decoration: none;
+
+        .button-link {
             display: block;
+            width: fit-content;
+            margin: 20px auto;
+            padding: 15px 30px;
+            text-align: center;
+            text-decoration: none;
+            color: #fff;
+            background-color: #007bff;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
         }
-        li a:hover {
-            color: #0056b3;
-            text-decoration: underline;
+
+        .button-link:hover {
+            background-color: #0056b3;
         }
-        p {
-            color: #555;
-            margin-bottom: 10px;
-            line-height: 1.5;
-        }
+
         .footer {
             text-align: center;
-            margin-top: 20px;
-            color: #888;
+            margin-top: 30px;
+            color: #777;
             font-size: 0.9em;
         }
     </style>
 </head>
 <body>
-    <h1>Kodi Repository</h1>
-    <p>Download the repository ZIP files below to install it in Kodi.</p>
-   <h2>All In One Repository Files</h2>
-    <ul>
-        <li><a href="repository/">Download Repository Files</a></li>
-    </ul>
-
+    <div class="container">
+        <h1>Welcome to the Kodi Repository</h1>
+        <p style="text-align: center;">Click the button below to browse and download repository files.</p>
+        <a href="repository/" class="button-link">Browse Repository Files</a>
+    </div>
     <div class="footer">
         <p>For Kodi enthusiasts.</p>
     </div>
