@@ -8,14 +8,6 @@
         <requires>
             <import addon="xbmc.python" version="3.0.1"/>
             <import addon="script.module.requests"/>
-            <import addon="plugin.video.themoviedb.helper" optional="true"/>
-            <import addon="script.module.youraccounts" optional="true"/>
-            <import addon="script.module.yourscrapers" optional="true"/>
-            <import addon="script.module.beautifulsoup4" optional="true"/>
-            <import addon="script.module.kodi-six" optional="true"/>
-            <import addon="script.module.resolveurl" optional="true"/>
-            <import addon="script.module.audrey" optional="true" />
-            <import addon="script.module.metahandler" optional="true" />
         </requires>
         <extension point="xbmc.python.pluginsource" library="main.py">
             <provides>video</provides>
