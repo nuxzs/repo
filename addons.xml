@@ -38,7 +38,7 @@ to keep this addon updated to the latest version.
 
     <!-- Definition for your repository addon: repository.Golden -->
     <addon id="repository.Golden" 
-           name="[COLOR gold]Golden Official Repository[/COLOR]"
+           name="[COLOR gold]Golden Repository[/COLOR]"
            version="1.0.1" 
            provider-name="Golden Team">
         <extension point="xbmc.addon.repository">
