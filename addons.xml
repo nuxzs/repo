@@ -29,8 +29,8 @@ to keep this addon updated to the latest version.
             <disclaimer lang="en_GB">STAY UPDATE EVERYTIME</disclaimer>
             <license>GPL-3.0-only</license>
             <assets>
-                <icon>resources/images/icon.png</icon>
-                <fanart>resources/images/fanart.jpg</fanart>
+                <icon>zips/plugin.video.GoldVault/icon.png</icon>
+                <fanart>zips/plugin.video.GoldVault/fanart.jpg</fanart>
             </assets>
             <news>Updated with More Live Tv Channels</news>
         </extension>
