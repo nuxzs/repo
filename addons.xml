@@ -38,16 +38,15 @@ to keep this addon updated to the latest version.
 
     <!-- Definition for your repository addon: repository.Golden -->
     <addon id="repository.Golden" 
-           name="Golden Official Repository"
-           version="1.0.2" 
-           provider-name="Your Name/Golden Team"> <!-- Remember to replace "Your Name/Golden Team" -->
-        <extension point="xbmc.addon.repository" />
+       name="[COLOR gold]Golden Repository[/COLOR]"
+       version="1.0.2" 
+       provider-name="Golden Team">
+        <extension point="xbmc.addon.repository">
         <extension point="xbmc.addon.metadata">
             <summary>Official Repository for Golden Addons</summary>
             <description>Install and update Golden addons automatically.</description>
             <platform>all</platform>
             <assets>
-                <!-- Removed direct URL. Kodi will now look for icon.png inside the repository.Golden.1.0.2.zip -->
                 <icon>icon.png</icon> 
             </assets>
         </extension>
