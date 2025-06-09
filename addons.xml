@@ -1,24 +1,53 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addons>
+    <!-- Definition for your main addon: plugin.video.GoldVault -->
     <addon id="plugin.video.GoldVault"
-           name="GoldVault Live TV"
-           version="1.0.0" 
-           provider-name="Your Name/GoldVault Team">
+           version="1.0.2"
+           name="[COLOR gold]GoldVault[/COLOR]"
+           provider-name="GOLDENREPO">
         <requires>
-            <import addon="xbmc.python" version="3.0.0"/>
+            <import addon="xbmc.python" version="3.0.1"/>
             <import addon="script.module.requests"/>
+            <import addon="plugin.video.themoviedb.helper" optional="true"/>
+            <import addon="script.module.youraccounts" optional="true"/>
+            <import addon="script.module.yourscrapers" optional="true"/>
+            <import addon="script.module.beautifulsoup4" optional="true"/>
+            <import addon="script.module.kodi-six" optional="true"/>
+            <import addon="script.module.resolveurl" optional="true"/>
+            <import addon="script.module.audrey" optional="true" />
+            <import addon="script.module.metahandler" optional="true" />
         </requires>
         <extension point="xbmc.python.pluginsource" library="main.py">
             <provides>video</provides>
         </extension>
         <extension point="xbmc.addon.metadata">
-            <summary lang="en">Live TV streaming from GoldVault.</summary>
-            <description lang="en">Access various live TV channels easily.</description>
-            <disclaimer lang="en"></disclaimer>
+            <summary lang="en_GB">Example Kodi Video Plugin</summary>
+            <description lang="en_GB">Gold Vault provides OneClick Movies and Live TV streaming.
+[COLOR gold][B]Disclaimer:[/B][/COLOR] To ensure proper functionality,it is essential
+to keep this addon updated to the latest version.
+            </description>
+            <disclaimer lang="en_GB">STAY UPDATE EVERYTIME</disclaimer>
+            <license>GPL-3.0-only</license>
+            <assets>
+                <icon>resources/images/icon.png</icon>
+                <fanart>resources/images/fanart.jpg</fanart>
+            </assets>
+            <news>Updated with More Live Tv Channels</news>
+        </extension>
+    </addon>
+
+    <!-- Definition for your repository addon: repository.Golden -->
+    <addon id="repository.Golden" 
+           name="Golden Official Repository"
+           version="1.0.2" 
+           provider-name="Your Name/Golden Team"> <!-- Remember to replace "Your Name/Golden Team" -->
+        <extension point="xbmc.addon.repository" />
+        <extension point="xbmc.addon.metadata">
+            <summary>Official Repository for Golden Addons</summary>
+            <description>Install and update Golden addons automatically.</description>
             <platform>all</platform>
             <assets>
-                <icon>icon.png</icon>
-                <fanart>fanart.jpg</fanart>
+                <icon>icon.png</icon> 
             </assets>
         </extension>
     </addon>
