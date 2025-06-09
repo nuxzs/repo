@@ -2,7 +2,7 @@
 <addons>
     <!-- Definition for your main addon: plugin.video.GoldVault -->
     <addon id="plugin.video.GoldVault"
-           version="1.0.3"
+           version="1.0.2"
            name="[COLOR gold]GoldVault[/COLOR]"
            provider-name="GOLDENREPO">
         <requires>
