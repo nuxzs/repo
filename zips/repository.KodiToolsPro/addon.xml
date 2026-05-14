@@ -15,10 +15,10 @@
     <extension point="xbmc.addon.metadata">
         <summary>KodiToolsPro repository</summary>
         <description>
-KodiToolsPro by CorpTeam brings together useful Kodi tools,
-repository utilities, IPTV helpers, maintenance scripts,
-and Repo Tools in one clean and easy-to-use repository experience.
-</description>
+        KodiToolsPro by CorpTeam brings together useful Kodi tools,
+        repository utilities, IPTV helpers, maintenance scripts,
+        and Repo Tools in one clean and easy-to-use repository experience.
+        </description>
         <disclaimer>Credit to peno64 for the resources and tools of some of the plugin.</disclaimer>
         <platform>all</platform>
         <assets>
