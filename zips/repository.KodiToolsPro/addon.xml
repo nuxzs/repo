@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="repository.KodiToolsPro" name="[B][COLOR mediumpurple]KodiTools[/COLOR] [COLOR white]Pro[/COLOR][/B]" version="1.6" provider-name="[COLOR mediumpurple]CorpTeam[/COLOR]">
+    <extension point="xbmc.addon.repository" name="KodiToolsPro repository">
+        <dir>
+            <info compressed="false">https://raw.githubusercontent.com/peno64/repository.peno64/master/repo/zips/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/peno64/repository.peno64/master/repo/zips/addons.xml.md5</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/peno64/repository.peno64/master/repo/zips/</datadir>
+        </dir>
+	     <dir>
+            <info compressed="false">https://raw.githubusercontent.com/nuxzs/repo/main/zips/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/nuxzs/repo/main/zips/addons.md5</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/nuxzs/repo/main/zips</datadir>
+        </dir>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary>KodiToolsPro repository</summary>
+        <description>A lightweight tool to clean cache, fix buffering, and backup your Kodi setup in one click </description>
+        <disclaimer></disclaimer>
+        <platform>all</platform>
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+        </assets>
+    </extension>
+</addon>
