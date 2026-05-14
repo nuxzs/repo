@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addons>
   <!-- REPO -->
-<addon id="repository.KodiToolsPro" name="[B][COLOR mediumpurple]KodiTools[/COLOR] [COLOR white]Pro[/COLOR][/B]" version="1.6" provider-name="[COLOR mediumpurple]CorpTeam[/COLOR]">
+<addon id="repository.KodiToolsPro" name="[COLOR mediumpurple]KodiTools[/COLOR] [COLOR white]Pro[/COLOR]" version="1.6" provider-name="[COLOR mediumpurple]CorpTeam[/COLOR]">
     <extension point="xbmc.addon.repository" name="KodiToolsPro repository">
 	    <dir>
             <info compressed="false">https://raw.githubusercontent.com/nuxzs/repo/main/zips/addons.xml</info>
@@ -28,7 +28,7 @@ and Repo Tools in one clean and easy-to-use repository experience.
             <fanart>fanart.jpg</fanart>
         </assets>
     </extension>
-</addon>  
+</addon>
   <!-- REPOTOOLS -->
 <addon
     id="plugin.program.repotools"
