@@ -32,7 +32,7 @@ and Repo Tools in one clean and easy-to-use repository experience.
   <!-- REPOTOOLS -->
 <addon
     id="plugin.program.repotools"
-    name="[B][COLOR mediumpurple]CorpTeam Repo[/COLOR] [COLOR white]Tools[/COLOR][/B]"
+    name="[COLOR mediumpurple]CorpTeam Repo[/COLOR] [COLOR white]Tools[/COLOR]"
     version="1.0.0"
     provider-name="[COLOR mediumpurple]CorpTeam[/COLOR]">
 
