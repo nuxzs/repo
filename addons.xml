@@ -3,7 +3,7 @@
 
     <!-- GoldenVault Video Addon -->
     <addon id="plugin.video.GoldenVault"
-           version="1.0.4"
+           version="1.0.3"
            name="[COLOR FFD4AF37]GoldenVault[/COLOR]"
            provider-name="Golden Team">
 
