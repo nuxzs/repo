@@ -43,7 +43,7 @@
     <!-- Golden Repository -->
     <addon id="repository.Golden"
        name="[COLOR FFD4AF37]Golden Repository[/COLOR]"
-       version="1.0.1"
+       version="1.0.2"
        provider-name="Golden Team">
 
     <extension point="xbmc.addon.repository">
