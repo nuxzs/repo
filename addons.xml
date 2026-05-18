@@ -1,49 +1,60 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addons>
-    <!-- Definition for your main addon: plugin.video.GoldVault -->
-    <addon id="plugin.video.GoldVault"
-           version="1.0.2"
-           name="[COLOR gold]GoldVault[/COLOR]"
-           provider-name="Golden Team">
-        <requires>
-            <import addon="xbmc.python" version="3.0.1"/>
-            <import addon="script.module.requests"/>
-        </requires>
-        <extension point="xbmc.python.pluginsource" library="main.py">
-            <provides>video</provides>
-        </extension>
-        <extension point="xbmc.addon.metadata">
-            <summary lang="en_GB">Example Kodi Video Plugin</summary>
-            <description lang="en_GB">Gold Vault provides OneClick Movies and Live TV streaming.
-[COLOR gold][B]Disclaimer:[/B][/COLOR] To ensure proper functionality,it is essential
-to keep this addon updated to the latest version.
-[COLOR gold][B]UPDATE:[/B][/COLOR] More Live Tv Channels
-            </description>
-            <disclaimer lang="en_GB">STAY UPDATE EVERYTIME</disclaimer>
-            <license>GPL-3.0-only</license>
-            <assets>
-                <icon>icon.png</icon>
-                <fanart>fanart.jpg</fanart>
-            </assets>
-            <news>Updated with More Live Tv Channels</news>
-        </extension>
-    </addon>
+<addon id="plugin.video.GoldenVault"
+       version="1.0.4"
+       name="[COLOR FFD4AF37]GoldenVault[/COLOR]"
+       provider-name="Golden Team">
+
+    <requires>
+        <import addon="xbmc.python" version="3.0.1"/>
+        <import addon="script.module.requests"/>
+    </requires>
+
+    <extension point="xbmc.python.pluginsource" library="main.py">
+        <provides>video</provides>
+    </extension>
+
+    <extension point="xbmc.addon.metadata">
+        <summary lang="en_GB">GoldenVault OneClick Movies</summary>
+
+        <description lang="en_GB">[COLOR FFD4AF37][B]GoldenVault[/B][/COLOR] Provides Fast OneClick Movies with a clean Cinematic Experience.
+
+[COLOR FFD4AF37][B]Notice:[/B][/COLOR] Keep the addon updated for the latest categories, and improved performance.
+
+[COLOR FFD4AF37][B]Latest Update:[/B][/COLOR] New Movie List • Faster Loading</description>
+
+        <disclaimer lang="en_GB">[COLOR FFD4AF37]Keep GoldenVault updated for the Best experience.[/COLOR]</disclaimer>
+
+        <license>GPL-3.0-only</license>
+
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+        </assets>
+		
+    </extension>
+</addon>
 
     <!-- Definition for your repository addon: repository.Golden -->
-    <addon id="repository.Golden" 
-           name="[COLOR gold]Golden Repository[/COLOR]"
-           version="1.0.1" 
-           provider-name="Golden Team">
-        <extension point="xbmc.addon.repository">
-        </extension>
-        <extension point="xbmc.addon.metadata">
-            <summary>Official Repository for Golden Addons</summary>
-            <description>Install and update Golden addons automatically.</description>
-            <platform>all</platform>
-            <assets>
-                <icon>icon.png</icon> 
-                <fanart>fanart.jpg</fanart>
-            </assets>
-        </extension>
-    </addon>
-</addons>
+    <addon id="repository.Golden"
+       name="[COLOR FFD4AF37]Golden Repository[/COLOR]"
+       version="1.0.1"
+       provider-name="Golden Team">
+
+    <extension point="xbmc.addon.repository">
+    </extension>
+
+    <extension point="xbmc.addon.metadata">
+        <summary lang="en_GB">Official GoldenVault Repository</summary>
+
+        <description lang="en_GB">[COLOR FFD4AF37][B]Golden Repository[/B][/COLOR] Provides Access to GoldenVault Updates and OneClick Movies.</description>
+
+        <platform>all</platform>
+
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+        </assets>
+
+        <news>Repository updated with latest GoldenVault build.</news>
+    </extension>
+</addon>
