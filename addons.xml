@@ -1,60 +1,75 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="plugin.video.GoldenVault"
-       version="1.0.4"
-       name="[COLOR FFD4AF37]GoldenVault[/COLOR]"
-       provider-name="Golden Team">
+<addons>
 
-    <requires>
-        <import addon="xbmc.python" version="3.0.1"/>
-        <import addon="script.module.requests"/>
-    </requires>
+    <!-- GoldenVault Video Addon -->
+    <addon id="plugin.video.GoldenVault"
+           version="1.0.4"
+           name="[COLOR FFD4AF37]GoldenVault[/COLOR]"
+           provider-name="Golden Team">
 
-    <extension point="xbmc.python.pluginsource" library="main.py">
-        <provides>video</provides>
-    </extension>
+        <requires>
+            <import addon="xbmc.python" version="3.0.1"/>
+            <import addon="script.module.requests"/>
+        </requires>
 
-    <extension point="xbmc.addon.metadata">
-        <summary lang="en_GB">GoldenVault OneClick Movies</summary>
+        <extension point="xbmc.python.pluginsource" library="main.py">
+            <provides>video</provides>
+        </extension>
 
-        <description lang="en_GB">[COLOR FFD4AF37][B]GoldenVault[/B][/COLOR] Provides Fast OneClick Movies with a clean Cinematic Experience.
+        <extension point="xbmc.addon.metadata">
 
-[COLOR FFD4AF37][B]Notice:[/B][/COLOR] Keep the addon updated for the latest categories, and improved performance.
+            <summary lang="en_GB">GoldenVault OneClick Movies</summary>
+
+            <description lang="en_GB">[COLOR FFD4AF37][B]GoldenVault[/B][/COLOR] Provides Fast OneClick Movies with a clean Cinematic Experience.
+
+[COLOR FFD4AF37][B]Notice:[/B][/COLOR] Keep the addon updated for the latest categories and improved performance.
 
 [COLOR FFD4AF37][B]Latest Update:[/B][/COLOR] New Movie List • Faster Loading</description>
 
-        <disclaimer lang="en_GB">[COLOR FFD4AF37]Keep GoldenVault updated for the Best experience.[/COLOR]</disclaimer>
+            <disclaimer lang="en_GB">[COLOR FFD4AF37]Keep GoldenVault updated for the Best experience.[/COLOR]</disclaimer>
 
-        <license>GPL-3.0-only</license>
+            <license>GPL-3.0-only</license>
 
-        <assets>
-            <icon>icon.png</icon>
-            <fanart>fanart.jpg</fanart>
-        </assets>
-		
-    </extension>
-</addon>
+            <platform>all</platform>
 
-    <!-- Definition for your repository addon: repository.Golden -->
+            <assets>
+                <icon>icon.png</icon>
+                <fanart>fanart.jpg</fanart>
+            </assets>
+
+        </extension>
+    </addon>
+
+    <!-- Golden Repository -->
     <addon id="repository.Golden"
-       name="[COLOR FFD4AF37]Golden Repository[/COLOR]"
-       version="1.0.1"
-       provider-name="Golden Team">
+           name="[COLOR FFD4AF37]Golden Repository[/COLOR]"
+           version="1.0.1"
+           provider-name="Golden Team">
 
-    <extension point="xbmc.addon.repository">
-    </extension>
+        <extension point="xbmc.addon.repository">
+            <dir>
+                <info compressed="false"></info>
+                <checksum></checksum>
+                <datadir zip="true"></datadir>
+            </dir>
+        </extension>
 
-    <extension point="xbmc.addon.metadata">
-        <summary lang="en_GB">Official GoldenVault Repository</summary>
+        <extension point="xbmc.addon.metadata">
 
-        <description lang="en_GB">[COLOR FFD4AF37][B]Golden Repository[/B][/COLOR] Provides Access to GoldenVault Updates and OneClick Movies.</description>
+            <summary lang="en_GB">Official GoldenVault Repository</summary>
 
-        <platform>all</platform>
+            <description lang="en_GB">[COLOR FFD4AF37][B]Golden Repository[/B][/COLOR] Provides Access to GoldenVault Updates and OneClick Movies.</description>
 
-        <assets>
-            <icon>icon.png</icon>
-            <fanart>fanart.jpg</fanart>
-        </assets>
+            <platform>all</platform>
 
-        <news>Repository updated with latest GoldenVault build.</news>
-    </extension>
-</addon>
+            <assets>
+                <icon>icon.png</icon>
+                <fanart>fanart.jpg</fanart>
+            </assets>
+
+            <news>Repository updated with latest GoldenVault build.</news>
+
+        </extension>
+    </addon>
+
+</addons>
