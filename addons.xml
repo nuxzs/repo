@@ -42,34 +42,32 @@
 
     <!-- Golden Repository -->
     <addon id="repository.Golden"
-           name="[COLOR FFD4AF37]Golden Repository[/COLOR]"
-           version="1.0.1"
-           provider-name="Golden Team">
+       name="[COLOR FFD4AF37]Golden Repository[/COLOR]"
+       version="1.0.1"
+       provider-name="Golden Team">
 
-        <extension point="xbmc.addon.repository">
-            <dir>
-                <info compressed="false"></info>
-                <checksum></checksum>
-                <datadir zip="true"></datadir>
-            </dir>
-        </extension>
+    <extension point="xbmc.addon.repository">
+        <dir>
+            <info compressed="false">https://raw.githubusercontent.com/nuxzs/repo/refs/heads/main/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/nuxzs/repo/refs/heads/main/addons.xml.md5</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/nuxzs/repo/tree/main/zips</datadir>
+        </dir>
+    </extension>
 
-        <extension point="xbmc.addon.metadata">
+    <extension point="xbmc.addon.metadata">
+        <summary lang="en_GB">Official GoldenVault Repository</summary>
 
-            <summary lang="en_GB">Official GoldenVault Repository</summary>
+        <description lang="en_GB">[COLOR FFD4AF37][B]Golden Repository[/B][/COLOR] Provides Access to GoldenVault Updates and OneClick Movies.</description>
 
-            <description lang="en_GB">[COLOR FFD4AF37][B]Golden Repository[/B][/COLOR] Provides Access to GoldenVault Updates and OneClick Movies.</description>
+        <platform>all</platform>
 
-            <platform>all</platform>
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+        </assets>
 
-            <assets>
-                <icon>icon.png</icon>
-                <fanart>fanart.jpg</fanart>
-            </assets>
-
-            <news>Repository updated with latest GoldenVault build.</news>
-
-        </extension>
-    </addon>
+        <news>Repository updated with latest GoldenVault build.</news>
+    </extension>
+</addon>
 
 </addons>
