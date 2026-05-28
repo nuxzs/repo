@@ -23,7 +23,7 @@ and Repo Tools in one clean and easy-to-use repository experience.
 <addon
     id="plugin.program.repotools"
     name="[COLOR mediumpurple]CorpTeam Repo[/COLOR] [COLOR white]Tools[/COLOR]"
-    version="1.0.0"
+    version="1.0.1"
     provider-name="[COLOR mediumpurple]CorpTeam[/COLOR]">
 
     <requires>
@@ -33,12 +33,31 @@ and Repo Tools in one clean and easy-to-use repository experience.
     <extension point="xbmc.python.script" library="default.py">
         <provides>executable</provides>
     </extension>
+
     <extension point="xbmc.addon.metadata">
-        <summary lang="en_GB">Search and browse Kodi repositories</summary>
 
-        <description lang="en_GB">Repo Tools lets you browse installed repositories, search add-ons, check repository health, inspect metadata, and view video add-ons before installing them.</description>
+        <summary lang="en_GB">
+            Repository browser, search, and health checker for Kodi
+        </summary>
 
-        <disclaimer lang="en_GB">This add-on only reads repository metadata already available from installed repositories. It does not host or provide media content.</disclaimer>
+        <description lang="en_GB">
+CorpTeam Repo Tools helps you browse installed Kodi repositories, 
+search add-ons, inspect video add-ons, review metadata quality, 
+and check repository health before installing.
+
+[B][COLOR mediumpurple]Update:[/COLOR][/B]
+• Improved repository health checks
+• Better video add-on inspection
+• Added debugger mode for advanced details
+• Faster repository loading and search
+• Cleaner interface and Kodi skin compatibility
+        </description>
+
+        <disclaimer lang="en_GB">
+This add-on only reads repository and add-on metadata from repositories
+already installed in Kodi. It does not host, stream, scrape, 
+or provide media content.
+        </disclaimer>
 
         <platform>all</platform>
         <language>en</language>
@@ -46,7 +65,9 @@ and Repo Tools in one clean and easy-to-use repository experience.
 
         <assets>
             <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
         </assets>
+
     </extension>
 
 </addon>
