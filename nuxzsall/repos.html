@@ -1,140 +1,539 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Repository Files</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #1e1e1e;
-            color: #f4f4f4;
-            padding: 20px;
-            margin: 0;
-        }
-        .container {
-            max-width: 800px;
-            margin: auto;
-            background-color: #2b2b2b;
-            border-radius: 8px;
-            padding: 30px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        th, td {
-            padding: 10px;
-            text-align: left;
-            border-bottom: 1px solid #444;
-        }
-        a {
-            color: #007bff;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        th {
-            background-color: #333;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Repository Hub</title>
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --bg:#070b16;
+    --panel:rgba(20,25,45,.74);
+    --panel2:rgba(255,255,255,.055);
+    --text:#f7f7fb;
+    --muted:#b6bfd6;
+    --purple:#e79aff;
+    --purple2:#d8b4fe;
+    --blue:#4361ee;
+    --navy:#0a1a4f;
+    --ocean:#1f6fa8;
+    --cyan:#8ecae6;
+}
+
+html,body{
+    min-height:100%;
+}
+
+body{
+    height:100vh;
+    font-family:Segoe UI,Tahoma,Arial,sans-serif;
+    background:
+        radial-gradient(circle at 16% 16%,rgba(231,154,255,.20),transparent 30%),
+        radial-gradient(circle at 86% 82%,rgba(142,202,230,.16),transparent 35%),
+        linear-gradient(135deg,#070b16 0%,#0a1a4f 45%,#07101f 100%);
+    color:var(--text);
+    padding:22px;
+    overflow:hidden;
+    animation:pageIn .75s ease both;
+}
+
+body.page-exit{
+    animation:pageOut .5s ease forwards;
+}
+
+@keyframes pageIn{
+    from{opacity:0;filter:blur(8px);transform:translateY(14px)}
+    to{opacity:1;filter:blur(0);transform:translateY(0)}
+}
+
+@keyframes pageOut{
+    from{opacity:1;filter:blur(0);transform:translateY(0)}
+    to{opacity:0;filter:blur(8px);transform:translateY(14px)}
+}
+
+.bg-glow{
+    position:fixed;
+    width:460px;
+    height:460px;
+    border-radius:50%;
+    filter:blur(96px);
+    pointer-events:none;
+    z-index:0;
+    animation:float 9s ease-in-out infinite;
+}
+
+.bg-glow.one{
+    left:-150px;
+    top:-150px;
+    background:rgba(231,154,255,.18);
+}
+
+.bg-glow.two{
+    right:-160px;
+    bottom:-160px;
+    background:rgba(142,202,230,.16);
+    animation-delay:2s;
+}
+
+@keyframes float{
+    0%,100%{transform:translateY(0) scale(1)}
+    50%{transform:translateY(-24px) scale(1.06)}
+}
+
+.shell{
+    position:relative;
+    z-index:1;
+    height:calc(100vh - 44px);
+    max-width:1120px;
+    margin:0 auto;
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+}
+
+.topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
+    flex:0 0 auto;
+    animation:slideDown .65s ease both;
+}
+
+@keyframes slideDown{
+    from{opacity:0;transform:translateY(-16px)}
+    to{opacity:1;transform:translateY(0)}
+}
+
+.back{
+    color:#f1f6ff;
+    text-decoration:none;
+    border:1px solid rgba(142,202,230,.30);
+    background:rgba(142,202,230,.08);
+    padding:11px 16px;
+    border-radius:14px;
+    font-weight:800;
+    transition:.25s ease;
+}
+
+.back:hover{
+    transform:translateY(-2px);
+    background:rgba(142,202,230,.15);
+}
+
+.badge{
+    color:#fff;
+    border:1px solid rgba(231,154,255,.26);
+    background:rgba(231,154,255,.09);
+    padding:10px 15px;
+    border-radius:999px;
+    font-size:13px;
+    font-weight:900;
+}
+
+.hero{
+    flex:0 0 auto;
+    border:1px solid rgba(231,154,255,.22);
+    background:linear-gradient(180deg,rgba(255,255,255,.085),rgba(255,255,255,.04));
+    backdrop-filter:blur(18px);
+    border-radius:28px;
+    padding:28px;
+    box-shadow:
+        0 0 65px rgba(142,202,230,.12),
+        inset 0 1px 0 rgba(255,255,255,.10);
+    animation:cardIn .8s cubic-bezier(.2,.8,.2,1) both;
+}
+
+@keyframes cardIn{
+    from{opacity:0;transform:translateY(26px) scale(.98)}
+    to{opacity:1;transform:translateY(0) scale(1)}
+}
+
+h1{
+    font-size:clamp(32px,5vw,56px);
+    line-height:1;
+    margin-bottom:12px;
+    background:linear-gradient(135deg,#fff,#e79aff 38%,#8ecae6 82%);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+    color:var(--muted);
+    font-size:16px;
+    line-height:1.6;
+    max-width:780px;
+}
+
+.tools{
+    margin-top:22px;
+    display:flex;
+    gap:12px;
+    align-items:center;
+    flex-wrap:wrap;
+}
+
+.search{
+    flex:1;
+    min-width:230px;
+    border:1px solid rgba(142,202,230,.26);
+    background:rgba(0,0,0,.25);
+    color:#fff;
+    border-radius:15px;
+    padding:14px 16px;
+    outline:none;
+    font-size:15px;
+}
+
+.search:focus{
+    border-color:var(--cyan);
+    box-shadow:0 0 0 3px rgba(142,202,230,.10);
+}
+
+.count{
+    border:1px solid rgba(231,154,255,.24);
+    background:rgba(231,154,255,.08);
+    color:#f0c6ff;
+    border-radius:15px;
+    padding:14px 16px;
+    font-weight:900;
+}
+
+.repo-panel{
+    flex:1 1 auto;
+    min-height:0;
+    border:1px solid rgba(142,202,230,.18);
+    border-radius:28px;
+    background:rgba(4,9,22,.42);
+    backdrop-filter:blur(14px);
+    overflow:hidden;
+    animation:fadeUp .85s ease .12s both;
+}
+
+.repo-list{
+    height:auto;
+    max-height:100%;
+    overflow:auto;
+    padding:16px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:14px;
+    align-items:start;
+}
+
+.repo-list::-webkit-scrollbar{
+    width:10px;
+}
+
+.repo-list::-webkit-scrollbar-track{
+    background:rgba(255,255,255,.04);
+}
+
+.repo-list::-webkit-scrollbar-thumb{
+    background:linear-gradient(#e79aff,#8ecae6);
+    border-radius:999px;
+}
+
+@keyframes fadeUp{
+    from{opacity:0;transform:translateY(22px)}
+    to{opacity:1;transform:translateY(0)}
+}
+
+.repo-card{
+    min-height:150px;
+    height:auto;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    gap:18px;
+    padding:18px;
+    border-radius:18px;
+    border:1px solid rgba(142,202,230,.18);
+    background:rgba(4,9,22,.58);
+    text-decoration:none;
+    overflow:hidden;
+    position:relative;
+    transition:transform .22s ease, border-color .22s ease, box-shadow .22s ease;
+}
+
+.repo-card:hover{
+    transform:translateY(-2px);
+    border-color:rgba(142,202,230,.38);
+    box-shadow:0 12px 28px rgba(67,97,238,.16);
+}
+
+.repo-name{
+    position:relative;
+    z-index:1;
+    color:#fff;
+    font-size:18px;
+    font-weight:900;
+    line-height:1.35;
+}
+
+.repo-id{
+    position:relative;
+    z-index:1;
+    margin-top:6px;
+    color:#9fa9c8;
+    font-size:13px;
+    word-break:break-word;
+}
+
+.actions{
+    position:relative;
+    z-index:1;
+    display:flex;
+    gap:10px;
+}
+
+.repo-download{
+    display:block;
+    text-align:center;
+    text-decoration:none;
+    color:#fff;
+    background:linear-gradient(135deg,#e79aff 0%,#4361ee 55%,#1f6fa8 100%);
+    padding:12px 14px;
+    border-radius:14px;
+    font-weight:900;
+}
+
+.repo-download:hover{
+    filter:brightness(1.08);
+}
+
+.copy{
+    border:1px solid rgba(142,202,230,.34);
+    background:rgba(142,202,230,.08);
+    color:#d9f6ff;
+    padding:12px 14px;
+    border-radius:14px;
+    font-weight:850;
+    cursor:pointer;
+    transition:.25s ease;
+}
+
+.copy:hover{
+    background:rgba(142,202,230,.15);
+}
+
+.copy.copied{
+    color:#b8ffdf;
+    border-color:rgba(184,255,223,.55);
+    background:rgba(184,255,223,.10);
+}
+
+.footer{
+    flex:0 0 auto;
+    text-align:center;
+    color:#78839d;
+    font-size:12px;
+    padding-bottom:2px;
+}
+
+@media(max-width:700px){
+    body{padding:14px}
+    .shell{height:calc(100vh - 28px)}
+    .topbar{align-items:flex-start;flex-direction:column}
+    .hero{padding:22px}
+    .repo-list{grid-template-columns:1fr}
+}
+</style>
 </head>
 <body>
-    <div class="container">
-        <h1>Repository Files</h1>
-        <table id="list">
-            <thead>
-                <tr>
-                    <th style="width:55%"><a href="#">File Name</a>&nbsp;<a href="#">&nbsp;↓&nbsp;</a></th>
-                    <th style="width:20%"><a href="#">File Size</a>&nbsp;<a href="#">&nbsp;↓&nbsp;</a></th>
-                    <th style="width:25%"><a href="#">Date</a>&nbsp;<a href="#">&nbsp;↓&nbsp;</a></th>
-                </tr>
-            </thead>
-            <tbody>
-                 <tr>
-                    <td><a href="repository.shieldrepo-1.0.3.zip">repository.shieldrepo-1.0.3.zip</a></td>
-                    <td>1 MB</td>
-                    <td>2026-May-3</td>
-                </tr>
-                <tr>
-                    <td><a href="repository.Golden-1.0.2.zip">repository.Golden-1.0.2.zip</a></td>
-                    <td>1 MB</td>
-                    <td>2026-May-3</td>
-                </tr>
-                <tr>
-                    <td><a href="repository.Bee-Queen-1.0.4.zip">repository.Bee-Queen-1.0.4.zip</a></td>
-                    <td>5 MB</td>
-                    <td>2026-May-3</td>
-                </tr>
-                <tr>
-                    <td><a href="repository.KodiToolsPro-1.6.zip">repository.KodiToolsPro-1.6.zip</a></td>
-                    <td>5 MB</td>
-                    <td>2026-May-3</td>
-                </tr>
-                 <tr>
-                    <td><a href="repository.thelab-25.3.27.zip">repository.thelab-25.3.27.zip</a></td>
-                    <td>3 MB</td>
-                    <td>2026-Jan-24</td>
-                </tr>
-                 <tr>
-                    <td><a href="repository.elementumorg-0.0.7.zip">repository.elementumorg-0.0.7.zip</a></td>
-                    <td>64 KB</td>
-                    <td>2025-Sep-3</td>
-                </tr>
-                <tr>
-                    <td><a href="repository.bugatsinho-2.7.zip">repository.bugatsinho-2.7.zip</a></td>
-                    <td>5 MB</td>
-                    <td>2025-Apr-26</td>
-                </tr>
-                <tr>
-                    <td><a href="repository.nuxzs.1.2.zip">repository.nuxzs.1.2.zip</a></td>
-                    <td>4 MB</td>
-                    <td>2025-Apr-26</td>
-                </tr>
-                <tr>
-                    <td><a href="repository.Fishenzon-1.0.3.zip">repository.Fishenzon-1.0.3.zip</a></td>
-                    <td>6 MB</td>
-                    <td>2025-Apr-26</td>
-                </tr>
-                <tr>
-                    <td><a href="repository.cMaNWizard-3.2.zip">repository.cMaNWizard-3.2.zip</a></td>
-                    <td>5 MB</td>
-                    <td>2026-Jan-29</td>
-                </tr>
-                <tr>
-                    <td><a href="repository.slyguy.zip">repository.slyguy.zip</a></td>
-                    <td>3 MB</td>
-                    <td>2025-Apr-26</td>
-                </tr>
-                <tr>
-                    <td><a href="repository.mbebe.zip">repository.mbebe.zip</a></td>
-                    <td>4 MB</td>
-                    <td>2025-Apr-26</td>
-                </tr>
-                <tr>
-                    <td><a href="repository.diggz-23.zip">repository.diggz-23.zip</a></td>
-                    <td>6 MB</td>
-                    <td>2025-Apr-26</td>
-                </tr>
-                <tr>
-                    <td><a href="repository.Magnetic-1.1.0b.zip">repository.Magnetic-1.1.0b.zip</a></td>
-                    <td>5 MB</td>
-                    <td>2025-Apr-26</td>
-                </tr>
-                <tr>
-                    <td><a href="repository.redwizard-1.1.7.zip">repository.redwizard-1.1.7.zip</a></td>
-                    <td>6 MB</td>
-                    <td>2025-Apr-26</td>
-                </tr>
-                <tr>
-                    <td><a href="repository.thecrew-0.3.7.zip">repository.thecrew-0.3.7.zip</a></td>
-                    <td>9 MB</td>
-                    <td>2025-Apr-26</td>
-                </tr>
-            </tbody>
-        </table>
+<div class="bg-glow one"></div>
+<div class="bg-glow two"></div>
+
+<div class="shell">
+    <header class="topbar">
+        <a class="back transition-link" href="../index.html">← Back Home</a>
+        <div class="badge">Kodi ZIP Repository Files</div>
+    </header>
+
+    <section class="hero">
+        <h1>Repository Hub</h1>
+        <p>
+            Download a repository ZIP below for manual Kodi installation.
+        </p>
+
+        <div class="tools">
+            <input id="searchInput" class="search" type="text" placeholder="Search repository name...">
+            <div class="count"><span id="repoCount">0</span> Repos</div>
         </div>
+    </section>
+
+    <main class="repo-panel">
+        <div class="repo-list" id="repoList">
+
+    <article class="repo-card">
+        <div class="repo-info">
+            <div class="repo-name">Shield Repo</div>
+            <div class="repo-file">repository.shieldrepo-1.0.3.zip</div>
+        </div>
+        <a class="repo-download" href="repository.shieldrepo-1.0.3.zip">Download ZIP</a>
+    </article>
+
+    <article class="repo-card">
+        <div class="repo-info">
+            <div class="repo-name">Golden Repository</div>
+            <div class="repo-file">repository.Golden-1.0.2.zip</div>
+        </div>
+        <a class="repo-download" href="repository.Golden-1.0.2.zip">Download ZIP</a>
+    </article>
+
+    <article class="repo-card">
+        <div class="repo-info">
+            <div class="repo-name">Bee Queen Repository</div>
+            <div class="repo-file">repository.Bee-Queen-1.0.4.zip</div>
+        </div>
+        <a class="repo-download" href="repository.Bee-Queen-1.0.4.zip">Download ZIP</a>
+    </article>
+
+    <article class="repo-card">
+        <div class="repo-info">
+            <div class="repo-name">Kodi Tools Pro Repository</div>
+            <div class="repo-file">repository.KodiToolsPro-1.6.zip</div>
+        </div>
+        <a class="repo-download" href="repository.KodiToolsPro-1.6.zip">Download ZIP</a>
+    </article>
+
+    <article class="repo-card">
+        <div class="repo-info">
+            <div class="repo-name">The Lab Repository</div>
+            <div class="repo-file">repository.thelab-25.3.27.zip</div>
+        </div>
+        <a class="repo-download" href="repository.thelab-25.3.27.zip">Download ZIP</a>
+    </article>
+
+    <article class="repo-card">
+        <div class="repo-info">
+            <div class="repo-name">ElementumOrg Repository</div>
+            <div class="repo-file">repository.elementumorg-0.0.7.zip</div>
+        </div>
+        <a class="repo-download" href="repository.elementumorg-0.0.7.zip">Download ZIP</a>
+    </article>
+
+    <article class="repo-card">
+        <div class="repo-info">
+            <div class="repo-name">Bugatsinho Repository</div>
+            <div class="repo-file">repository.bugatsinho-2.7.zip</div>
+        </div>
+        <a class="repo-download" href="repository.bugatsinho-2.7.zip">Download ZIP</a>
+    </article>
+
+    <article class="repo-card">
+        <div class="repo-info">
+            <div class="repo-name">Nuxzs Repository</div>
+            <div class="repo-file">repository.nuxzs.1.2.zip</div>
+        </div>
+        <a class="repo-download" href="repository.nuxzs.1.2.zip">Download ZIP</a>
+    </article>
+
+    <article class="repo-card">
+        <div class="repo-info">
+            <div class="repo-name">Fishenzon Repository</div>
+            <div class="repo-file">repository.Fishenzon-1.0.3.zip</div>
+        </div>
+        <a class="repo-download" href="repository.Fishenzon-1.0.3.zip">Download ZIP</a>
+    </article>
+
+    <article class="repo-card">
+        <div class="repo-info">
+            <div class="repo-name">cMaN Wizard Repository</div>
+            <div class="repo-file">repository.cMaNWizard-3.2.zip</div>
+        </div>
+        <a class="repo-download" href="repository.cMaNWizard-3.2.zip">Download ZIP</a>
+    </article>
+
+    <article class="repo-card">
+        <div class="repo-info">
+            <div class="repo-name">SlyGuy Repository</div>
+            <div class="repo-file">repository.slyguy.zip</div>
+        </div>
+        <a class="repo-download" href="repository.slyguy.zip">Download ZIP</a>
+    </article>
+
+    <article class="repo-card">
+        <div class="repo-info">
+            <div class="repo-name">Mbebe Repository</div>
+            <div class="repo-file">repository.mbebe.zip</div>
+        </div>
+        <a class="repo-download" href="repository.mbebe.zip">Download ZIP</a>
+    </article>
+
+    <article class="repo-card">
+        <div class="repo-info">
+            <div class="repo-name">Diggz Repository</div>
+            <div class="repo-file">repository.diggz-23.zip</div>
+        </div>
+        <a class="repo-download" href="repository.diggz-23.zip">Download ZIP</a>
+    </article>
+
+    <article class="repo-card">
+        <div class="repo-info">
+            <div class="repo-name">Magnetic Repository</div>
+            <div class="repo-file">repository.Magnetic-1.1.0b.zip</div>
+        </div>
+        <a class="repo-download" href="repository.Magnetic-1.1.0b.zip">Download ZIP</a>
+    </article>
+
+    <article class="repo-card">
+        <div class="repo-info">
+            <div class="repo-name">Red Wizard Repository</div>
+            <div class="repo-file">repository.redwizard-1.1.7.zip</div>
+        </div>
+        <a class="repo-download" href="repository.redwizard-1.1.7.zip">Download ZIP</a>
+    </article>
+
+    <article class="repo-card">
+        <div class="repo-info">
+            <div class="repo-name">The Crew Repository</div>
+            <div class="repo-file">repository.thecrew-0.3.7.zip</div>
+        </div>
+        <a class="repo-download" href="repository.thecrew-0.3.7.zip">Download ZIP</a>
+    </article>
+
+</div>
+    </main>
+
+    <div class="footer">Created by Nuxzs • All-in-One Kodi Repo Links</div>
+<script>
+const repoCount = document.getElementById("repoCount");
+const repoCards = document.querySelectorAll(".repo-card");
+const searchInput = document.getElementById("searchInput");
+
+repoCount.textContent = repoCards.length;
+
+searchInput.addEventListener("input", () => {
+    const q = searchInput.value.trim().toLowerCase();
+    let visible = 0;
+
+    repoCards.forEach(card => {
+        const text = card.textContent.toLowerCase();
+        const show = text.includes(q);
+        card.style.display = show ? "flex" : "none";
+        if (show) visible++;
+    });
+
+    repoCount.textContent = visible;
+});
+
+document.querySelectorAll(".transition-link").forEach(link => {
+    link.addEventListener("click", function(e){
+        e.preventDefault();
+        const target = this.href;
+        document.body.classList.add("page-exit");
+        setTimeout(() => {
+            window.location.href = target;
+        }, 430);
+    });
+});
+</script>
+</div>
 </body>
 </html>
