@@ -16,7 +16,7 @@ Install this repository in your Kodi setup and gain instant access to a wide ran
 
 ## 📱 Visit Our Website
 
-[![Visit Website](https://img.shields.io/badge/Visit%20Website-Click%20Here-blue?style=for-the-badge)](https://your-website.com)
+[![Visit Website](https://img.shields.io/badge/Visit%20Website-Click%20Here-blue?style=for-the-badge)](https://nuxzs.github.io/repo/)
 
 ## 📝 About
 
