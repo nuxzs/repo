@@ -1,714 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All-in-One Kodi Repository Hub</title>
-    <style>
-        /* ===========================
-           RESET & BASE STYLES
-           =========================== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 50%, #16213e 100%);
-            color: #e0e0e0;
-            line-height: 1.6;
-            overflow-x: hidden;
-            min-height: 100vh;
-            position: relative;
-        }
-
-        /* Animated glowing background */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 50%);
-            pointer-events: none;
-            z-index: 0;
-            animation: glowPulse 15s ease-in-out infinite;
-        }
-
-        @keyframes glowPulse {
-            0%, 100% { opacity: 0.5; }
-            50% { opacity: 1; }
-        }
-
-        /* ===========================
-           CONTAINER & LAYOUT
-           =========================== */
-        .container {
-            position: relative;
-            z-index: 1;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        section {
-            padding: 80px 20px;
-            margin: 0 auto;
-        }
-
-        /* ===========================
-           HERO SECTION
-           =========================== */
-        .hero {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            text-align: center;
-            position: relative;
-        }
-
-        .hero-content {
-            animation: slideInUp 0.8s ease-out;
-        }
-
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
-            letter-spacing: -1px;
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            color: #b0b0b0;
-            margin-bottom: 40px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-            animation: fadeIn 1s ease-out 0.3s both;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .btn {
-            padding: 14px 35px;
-            font-size: 1rem;
-            font-weight: 600;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
-            color: #0f0f0f;
-            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(212, 175, 55, 0.5);
-        }
-
-        .btn-secondary {
-            background: rgba(212, 175, 55, 0.1);
-            color: #d4af37;
-            border: 2px solid #d4af37;
-            backdrop-filter: blur(10px);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(212, 175, 55, 0.2);
-            transform: translateY(-3px);
-        }
-
-        /* ===========================
-           HOW IT WORKS SECTION
-           =========================== */
-        .how-it-works {
-            background: rgba(26, 26, 46, 0.5);
-            backdrop-filter: blur(10px);
-            border-top: 1px solid rgba(212, 175, 55, 0.2);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 60px;
-            color: #d4af37;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, #d4af37, transparent);
-            margin: 15px auto 0;
-        }
-
-        .steps-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .step-card {
-            background: rgba(212, 175, 55, 0.05);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            border-radius: 12px;
-            padding: 30px;
-            text-align: center;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .step-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #d4af37, transparent);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .step-card:hover::before {
-            opacity: 1;
-        }
-
-        .step-card:hover {
-            border-color: rgba(212, 175, 55, 0.5);
-            background: rgba(212, 175, 55, 0.1);
-            transform: translateY(-5px);
-        }
-
-        .step-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #d4af37;
-            margin-bottom: 15px;
-        }
-
-        .step-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 12px;
-            color: #f4d03f;
-        }
-
-        .step-card p {
-            color: #a0a0a0;
-            font-size: 0.95rem;
-        }
-
-        /* ===========================
-           REPOSITORY LINKS SECTION
-           =========================== */
-        .repository-links {
-            padding: 80px 20px;
-        }
-
-        .repos-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .repo-card {
-            background: rgba(212, 175, 55, 0.08);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            border-radius: 12px;
-            padding: 30px;
-            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .repo-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(212, 175, 55, 0.2) 0%, transparent 70%);
-            pointer-events: none;
-            opacity: 0;
-            transition: opacity 0.6s ease;
-        }
-
-        .repo-card:hover::before {
-            opacity: 1;
-        }
-
-        .repo-card:hover {
-            border-color: rgba(212, 175, 55, 0.6);
-            background: rgba(212, 175, 55, 0.12);
-            transform: translateY(-8px);
-            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2);
-        }
-
-        .repo-header {
-            position: relative;
-            z-index: 2;
-            margin-bottom: 15px;
-        }
-
-        .repo-name {
-            font-size: 1.5rem;
-            color: #d4af37;
-            margin-bottom: 8px;
-            font-weight: 700;
-        }
-
-        .repo-status {
-            display: inline-block;
-            padding: 4px 12px;
-            background: linear-gradient(135deg, #d4af37, #f4d03f);
-            color: #0f0f0f;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            margin-top: 10px;
-        }
-
-        .repo-description {
-            color: #a0a0a0;
-            font-size: 0.95rem;
-            margin-bottom: 20px;
-            flex-grow: 1;
-        }
-
-        .url-container {
-            margin-bottom: 20px;
-        }
-
-        .url-label {
-            display: block;
-            font-size: 0.85rem;
-            color: #888;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .url-input-wrapper {
-            display: flex;
-            gap: 8px;
-            align-items: center;
-        }
-
-        .url-input {
-            flex: 1;
-            padding: 10px 12px;
-            background: rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            border-radius: 6px;
-            color: #d4af37;
-            font-size: 0.85rem;
-            font-family: 'Courier New', monospace;
-            cursor: text;
-            word-break: break-all;
-            transition: all 0.3s ease;
-        }
-
-        .url-input:focus {
-            outline: none;
-            border-color: #d4af37;
-            background: rgba(212, 175, 55, 0.05);
-        }
-
-        .copy-btn {
-            padding: 10px 16px;
-            background: rgba(212, 175, 55, 0.2);
-            border: 1px solid rgba(212, 175, 55, 0.4);
-            color: #d4af37;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 0.85rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-        }
-
-        .copy-btn:hover {
-            background: rgba(212, 175, 55, 0.3);
-            border-color: #d4af37;
-        }
-
-        .copy-btn.copied {
-            background: rgba(76, 175, 80, 0.3);
-            border-color: rgba(76, 175, 80, 0.6);
-            color: #4caf50;
-        }
-
-        /* ===========================
-           IMPORTANT NOTICE SECTION
-           =========================== */
-        .notice {
-            background: rgba(255, 193, 7, 0.08);
-            border-left: 4px solid #d4af37;
-            border-radius: 8px;
-            padding: 30px;
-            margin: 60px auto;
-            max-width: 800px;
-        }
-
-        .notice h3 {
-            color: #d4af37;
-            margin-bottom: 10px;
-            font-size: 1.2rem;
-        }
-
-        .notice p {
-            color: #a0a0a0;
-            line-height: 1.8;
-        }
-
-        /* ===========================
-           FOOTER
-           =========================== */
-        footer {
-            background: rgba(15, 15, 15, 0.8);
-            border-top: 1px solid rgba(212, 175, 55, 0.2);
-            padding: 40px 20px;
-            text-align: center;
-            color: #888;
-            margin-top: 60px;
-        }
-
-        footer p {
-            margin: 8px 0;
-            font-size: 0.9rem;
-        }
-
-        footer a {
-            color: #d4af37;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        footer a:hover {
-            color: #f4d03f;
-        }
-
-        /* ===========================
-           RESPONSIVE DESIGN
-           =========================== */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero p {
-                font-size: 1.1rem;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .btn {
-                width: 100%;
-                max-width: 300px;
-            }
-
-            .section-title {
-                font-size: 1.8rem;
-            }
-
-            .steps-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .repos-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .url-input-wrapper {
-                flex-direction: column;
-            }
-
-            .copy-btn {
-                width: 100%;
-            }
-        }
-
-        /* ===========================
-           UTILITY CLASSES
-           =========================== */
-        .text-gold {
-            color: #d4af37;
-        }
-
-        .scroll-hint {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateX(-50%) translateY(0); }
-            50% { transform: translateX(-50%) translateY(-10px); }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kodi Repo Hub</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    font-family:Segoe UI,Tahoma,sans-serif;
+    background:
+        radial-gradient(circle at top left,rgba(212,175,55,.22),transparent 35%),
+        radial-gradient(circle at bottom right,rgba(212,175,55,.12),transparent 35%),
+        linear-gradient(135deg,#070707,#111827,#050505);
+    color:white;
+    overflow:hidden;
+}
+
+.glow{
+    position:absolute;
+    width:420px;
+    height:420px;
+    border-radius:50%;
+    background:rgba(212,175,55,.16);
+    filter:blur(80px);
+    animation:float 8s ease-in-out infinite;
+}
+
+.glow.one{
+    top:-120px;
+    left:-100px;
+}
+
+.glow.two{
+    bottom:-140px;
+    right:-100px;
+    animation-delay:2s;
+}
+
+@keyframes float{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-30px)}
+}
+
+.wrap{
+    position:relative;
+    z-index:2;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+}
+
+.card{
+    max-width:760px;
+    width:100%;
+    text-align:center;
+    padding:60px 34px;
+    border:1px solid rgba(212,175,55,.35);
+    border-radius:28px;
+    background:rgba(255,255,255,.055);
+    backdrop-filter:blur(18px);
+    box-shadow:0 0 60px rgba(212,175,55,.18);
+    animation:show .8s ease forwards;
+}
+
+@keyframes show{
+    from{opacity:0;transform:translateY(30px) scale(.98)}
+    to{opacity:1;transform:translateY(0) scale(1)}
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 16px;
+    border-radius:999px;
+    color:#d4af37;
+    border:1px solid rgba(212,175,55,.45);
+    background:rgba(212,175,55,.08);
+    font-size:14px;
+    margin-bottom:22px;
+}
+
+h1{
+    font-size:clamp(42px,8vw,82px);
+    line-height:1;
+    margin-bottom:22px;
+    background:linear-gradient(135deg,#fff2b0,#d4af37,#fff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+p{
+    max-width:560px;
+    margin:0 auto 36px;
+    color:#cfcfcf;
+    font-size:18px;
+    line-height:1.7;
+}
+
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:16px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    text-decoration:none;
+    padding:15px 34px;
+    border-radius:14px;
+    font-weight:700;
+    transition:.25s ease;
+}
+
+.primary{
+    background:linear-gradient(135deg,#d4af37,#ffe27a);
+    color:#090909;
+    box-shadow:0 10px 30px rgba(212,175,55,.35);
+}
+
+.primary:hover{
+    transform:translateY(-3px);
+    box-shadow:0 16px 42px rgba(212,175,55,.55);
+}
+
+.secondary{
+    color:#d4af37;
+    border:1px solid rgba(212,175,55,.55);
+    background:rgba(212,175,55,.08);
+}
+
+.secondary:hover{
+    transform:translateY(-3px);
+    background:rgba(212,175,55,.16);
+}
+
+.footer{
+    margin-top:36px;
+    color:#777;
+    font-size:13px;
+}
+
+@media(max-width:600px){
+    .card{
+        padding:46px 22px;
+    }
+}
+</style>
 </head>
+
 <body>
-    <!-- ===========================
-         HERO SECTION
-         =========================== -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>All-in-One Kodi Repo Links</h1>
-                <p>Add one source and access multiple Kodi repositories in one place. Your complete entertainment hub.</p>
-                <div class="cta-buttons">
-                    <button class="btn btn-primary" onclick="scrollToSection('repository-links')">View Sources</button>
-                    <button class="btn btn-secondary" onclick="scrollToSection('how-it-works')">How It Works</button>
-                </div>
-            </div>
+<div class="glow one"></div>
+<div class="glow two"></div>
+
+<div class="wrap">
+    <div class="card">
+        <div class="badge">Kodi Repository Hub</div>
+
+        <h1>All-in-One Repo Links</h1>
+
+        <p>
+            A clean hub page for Kodi repository sources.
+            Open the repo list page to view all available repository links in one organized place.
+        </p>
+
+        <div class="buttons">
+            <a class="btn primary" href="repos.html">Enter Repo List</a>
+            <a class="btn secondary" href="https://kodi.tv" target="_blank">Kodi Official</a>
         </div>
-    </section>
 
-    <!-- ===========================
-         HOW IT WORKS SECTION
-         =========================== -->
-    <section class="how-it-works" id="how-it-works">
-        <div class="container">
-            <h2 class="section-title">How It Works</h2>
-            <div class="steps-grid">
-                <div class="step-card">
-                    <div class="step-number">1</div>
-                    <h3>Open Kodi File Manager</h3>
-                    <p>Launch Kodi and navigate to the File Manager to add a new source.</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-number">2</div>
-                    <h3>Add the Source URL</h3>
-                    <p>Copy one of the repository URLs from below and add it as a new source in Kodi.</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-number">3</div>
-                    <h3>Install from ZIP</h3>
-                    <p>Go to Install from ZIP file and select the repository to install.</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-number">4</div>
-                    <h3>Browse Repositories</h3>
-                    <p>Once installed, browse and install any addon from the available repositories.</p>
-                </div>
-            </div>
+        <div class="footer">
+            Hosted with GitHub Pages
         </div>
-    </section>
-
-    <!-- ===========================
-         REPOSITORY LINKS SECTION
-         =========================== -->
-    <section class="repository-links" id="repository-links">
-        <div class="container">
-            <h2 class="section-title">Repository Sources</h2>
-            <div class="repos-grid" id="reposContainer">
-                <!-- Repository cards will be inserted here by JavaScript -->
-            </div>
-        </div>
-    </section>
-
-    <!-- ===========================
-         IMPORTANT NOTICE SECTION
-         =========================== -->
-    <section>
-        <div class="notice">
-            <h3>⚠️ Important Notice</h3>
-            <p>This page provides links to various Kodi repositories. It is your responsibility to keep repositories and addons updated regularly. Always ensure you're installing from trusted sources. We are not responsible for any content provided by third-party repositories. Use at your own discretion and follow Kodi's legal guidelines.</p>
-        </div>
-    </section>
-
-    <!-- ===========================
-         FOOTER
-         =========================== -->
-    <footer>
-        <p>&copy; 2026 All-in-One Kodi Repository Hub</p>
-        <p>Made with <span class="text-gold">❤️</span> for Kodi enthusiasts</p>
-        <p><a href="https://kodi.tv" target="_blank">Visit Kodi Official</a> | <a href="https://github.com" target="_blank">Hosted on GitHub Pages</a></p>
-    </footer>
-
-    <!-- ===========================
-         SCRIPTS
-         =========================== -->
-    <script>
-        // ===========================
-        // REPOSITORY DATA
-        // ===========================
-        // Easily modify repository names, descriptions, and URLs here
-        const repositories = [
-            {
-                name: 'Repository One',
-                description: 'Primary repository with essential addons and tools for Kodi.',
-                url: 'https://example.github.io/repo/',
-                status: 'Active'
-            },
-            {
-                name: 'Repository Two',
-                description: 'Extended addon collection with premium features and plugins.',
-                url: 'https://example.github.io/repos/',
-                status: 'Active'
-            },
-            {
-                name: 'Repository Three',
-                description: 'Specialized repository for streaming and media utilities.',
-                url: 'https://example.github.io/repository/',
-                status: 'Active'
-            },
-            {
-                name: 'Repository Four',
-                description: 'Community-driven repository with curated addons and extensions.',
-                url: 'https://example.github.io/addons/',
-                status: 'Stable'
-            },
-            {
-                name: 'Repository Five',
-                description: 'Development and beta repository for latest features and updates.',
-                url: 'https://example.github.io/beta/',
-                status: 'Beta'
-            },
-            {
-                name: 'Repository Six',
-                description: 'Legacy repository supporting older Kodi versions and addons.',
-                url: 'https://example.github.io/legacy/',
-                status: 'Active'
-            }
-        ];
-
-        // ===========================
-        // RENDER REPOSITORY CARDS
-        // ===========================
-        function renderRepositories() {
-            const container = document.getElementById('reposContainer');
-            container.innerHTML = repositories.map((repo, index) => `
-                <div class="repo-card" style="animation: slideInUp ${0.5 + index * 0.1}s ease-out;">
-                    <div class="repo-header">
-                        <div class="repo-name">${repo.name}</div>
-                        <span class="repo-status">${repo.status}</span>
-                    </div>
-                    <p class="repo-description">${repo.description}</p>
-                    <div class="url-container">
-                        <label class="url-label">Repository URL</label>
-                        <div class="url-input-wrapper">
-                            <input 
-                                type="text" 
-                                class="url-input" 
-                                value="${repo.url}" 
-                                readonly
-                                data-url="${repo.url}"
-                                data-index="${index}"
-                            >
-                            <button class="copy-btn" onclick="copyToClipboard(${index})">Copy</button>
-                        </div>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        // ===========================
-        // COPY TO CLIPBOARD FUNCTION
-        // ===========================
-        function copyToClipboard(index) {
-            const url = repositories[index].url;
-            navigator.clipboard.writeText(url).then(() => {
-                const btn = document.querySelectorAll('.copy-btn')[index];
-                const originalText = btn.textContent;
-                
-                btn.textContent = '✓ Copied!';
-                btn.classList.add('copied');
-                
-                setTimeout(() => {
-                    btn.textContent = originalText;
-                    btn.classList.remove('copied');
-                }, 2000);
-            }).catch(err => {
-                alert('Failed to copy. Please try again.');
-                console.error('Copy error:', err);
-            });
-        }
-
-        // ===========================
-        // SMOOTH SCROLL FUNCTION
-        // ===========================
-        function scrollToSection(sectionId) {
-            const element = document.getElementById(sectionId);
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        }
-
-        // ===========================
-        // INITIALIZE ON PAGE LOAD
-        // ===========================
-        document.addEventListener('DOMContentLoaded', () => {
-            renderRepositories();
-        });
-
-        // ===========================
-        // KEYBOARD SHORTCUTS
-        // ===========================
-        document.addEventListener('keydown', (e) => {
-            // Ctrl+K or Cmd+K to focus first copy button
-            if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
-                e.preventDefault();
-                const firstBtn = document.querySelector('.copy-btn');
-                if (firstBtn) firstBtn.focus();
-            }
-        });
-    </script>
+    </div>
+</div>
 </body>
 </html>
