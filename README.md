@@ -38,28 +38,7 @@ The hub displays links to multiple Kodi repositories with:
 - Repository data is stored in a simple JavaScript array
 - Easy to modify and add new repositories
 - Copy-to-clipboard functionality with visual feedback
-
-## ✏️ Customizing
-
-To add or modify repositories, edit the `repositories` array in `index.html`:
-
-```javascript
-const repositories = [
-    {
-        name: 'Repository Name',
-        description: 'Short description',
-        url: 'https://your-repo-url.com/',
-        status: 'Active'
-    },
-    // Add more repositories here
-];
-```
-
-## 📄 Files
-
-- `index.html` - The main web page with all styling and functionality
-- `README.md` - This file
-
+  
 ## 🎯 Purpose
 
 This repository is a **link aggregator for Kodi repositories**, not a Kodi addon repository itself. It makes it easier to manage and share multiple repository sources in one place.
