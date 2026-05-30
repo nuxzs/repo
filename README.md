@@ -1,37 +1,69 @@
-# 🎬 Kodi 2026 Addons Repository
+# All-in-One Kodi Repository Hub
 
-An all-in-one Kodi 2026 repository featuring premium addons, tools, and resources for an enhanced streaming experience.
+A simple web page that collects multiple Kodi repository links in one place. Add one source and access all repositories without installing them individually.
 
-## ✨ Features
+## 📖 What This Is
 
-- **Extensive Addon Collection** - Curated movies, TV shows, and entertainment addons
-- **Fast & Reliable** - Optimized performance with minimal lag
-- **Clean Interface** - User-friendly design for easy navigation
-- **Actively Maintained** - Regular updates and new content additions
-- **All-in-One Solution** - Movies, addons, and tools in a single repository
+This is a **hosted web page** that displays Kodi repository URLs. Instead of adding multiple repository sources to your Kodi setup, you can use this page to:
 
-## 🚀 Quick Start
+- View all available repository links in one location
+- Copy repository URLs easily for use in Kodi
+- Access them from any device via the web
 
-Install this repository in your Kodi setup and gain instant access to a wide range of addons and content.
+## 🔗 Visit the Hub
 
-## 📱 Visit Our Website
+Open the web page to see all available repositories and copy their URLs:
 
-[![Visit Website](https://img.shields.io/badge/Visit%20Website-Click%20Here-blue?style=for-the-badge)](https://nuxzs.github.io/repo/)
+[**All-in-One Kodi Repository Hub**](https://nuxzs.github.io/repo/)
 
-## 📝 About
+## 💡 How to Use
 
-This repository is designed for Kodi 2026 users who want a complete entertainment package. Whether you're looking for movies, shows, or specialized tools, we've got you covered with a fast, clean, and actively maintained solution.
+1. Visit the website
+2. Find the repository you want to add
+3. Copy the repository URL
+4. Add it as a source in Kodi (File Manager → Add Source)
+5. Install the repository from ZIP file
 
-## ⚡ Performance
+## 📦 What's Included
 
-- Lightning-fast addon loading
-- Minimal server latency
-- Optimized for all devices
+The hub displays links to multiple Kodi repositories with:
+- Repository name
+- Description
+- Direct URL for easy copying
+- Status indicator
 
-## 🔒 Support
+## 🛠️ How It Works
 
-For issues, questions, or feature requests, please visit our website or create an issue in this repository.
+- Pure HTML/CSS/JavaScript - no dependencies
+- Repository data is stored in a simple JavaScript array
+- Easy to modify and add new repositories
+- Copy-to-clipboard functionality with visual feedback
+
+## ✏️ Customizing
+
+To add or modify repositories, edit the `repositories` array in `index.html`:
+
+```javascript
+const repositories = [
+    {
+        name: 'Repository Name',
+        description: 'Short description',
+        url: 'https://your-repo-url.com/',
+        status: 'Active'
+    },
+    // Add more repositories here
+];
+```
+
+## 📄 Files
+
+- `index.html` - The main web page with all styling and functionality
+- `README.md` - This file
+
+## 🎯 Purpose
+
+This repository is a **link aggregator for Kodi repositories**, not a Kodi addon repository itself. It makes it easier to manage and share multiple repository sources in one place.
 
 ---
 
-**Enjoy your entertainment with Kodi 2026! 🎉**
+Made for Kodi enthusiasts who want a cleaner way to manage multiple repository sources.
