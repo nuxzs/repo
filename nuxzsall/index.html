@@ -204,7 +204,6 @@ h1{
     font-weight:900;
 }
 
-
 .folder-panel{
     flex:0 0 auto;
     display:grid;
@@ -226,7 +225,6 @@ h1{
         rgba(4,9,22,.58);
     box-shadow:0 12px 32px rgba(67,97,238,.12);
     transition:transform .22s ease, border-color .22s ease, box-shadow .22s ease;
-    cursor:pointer;
 }
 
 .folder-card:hover{
@@ -284,27 +282,7 @@ h1{
     animation:fadeUp .85s ease .12s both;
 }
 
-
-.repo-panel.view-exit{
-    animation:viewOut .22s ease forwards;
-}
-
-.repo-panel.view-enter{
-    animation:viewIn .35s ease forwards;
-}
-
-@keyframes viewOut{
-    from{opacity:1;filter:blur(0);transform:translateY(0)}
-    to{opacity:0;filter:blur(8px);transform:translateY(14px)}
-}
-
-@keyframes viewIn{
-    from{opacity:0;filter:blur(8px);transform:translateY(14px)}
-    to{opacity:1;filter:blur(0);transform:translateY(0)}
-}
-
-.repo-list,
-.image-list{
+.repo-list{
     height:auto;
     max-height:100%;
     overflow:auto;
@@ -315,18 +293,15 @@ h1{
     align-items:start;
 }
 
-.repo-list::-webkit-scrollbar,
-.image-list::-webkit-scrollbar{
+.repo-list::-webkit-scrollbar{
     width:10px;
 }
 
-.repo-list::-webkit-scrollbar-track,
-.image-list::-webkit-scrollbar-track{
+.repo-list::-webkit-scrollbar-track{
     background:rgba(255,255,255,.04);
 }
 
-.repo-list::-webkit-scrollbar-thumb,
-.image-list::-webkit-scrollbar-thumb{
+.repo-list::-webkit-scrollbar-thumb{
     background:linear-gradient(#e79aff,#8ecae6);
     border-radius:999px;
 }
@@ -368,20 +343,13 @@ h1{
     line-height:1.35;
 }
 
-.repo-id{
+.repo-file{
     position:relative;
     z-index:1;
     margin-top:6px;
     color:#9fa9c8;
     font-size:13px;
     word-break:break-word;
-}
-
-.actions{
-    position:relative;
-    z-index:1;
-    display:flex;
-    gap:10px;
 }
 
 .repo-download{
@@ -399,99 +367,6 @@ h1{
     filter:brightness(1.08);
 }
 
-.image-card{
-    min-height:245px;
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-    overflow:hidden;
-    border-radius:20px;
-    border:1px solid rgba(142,202,230,.18);
-    background:rgba(4,9,22,.58);
-    transition:transform .22s ease, border-color .22s ease, box-shadow .22s ease;
-}
-
-.image-card:hover{
-    transform:translateY(-2px);
-    border-color:rgba(142,202,230,.38);
-    box-shadow:0 12px 28px rgba(67,97,238,.16);
-}
-
-.image-preview{
-    height:148px;
-    background:#0a1022;
-    background-size:cover;
-    background-position:center;
-    border-bottom:1px solid rgba(142,202,230,.16);
-}
-
-.image-info{
-    padding:14px 14px 0;
-}
-
-.image-name{
-    color:#fff;
-    font-size:16px;
-    font-weight:900;
-    line-height:1.35;
-}
-
-.image-path{
-    margin-top:5px;
-    color:#9fa9c8;
-    font-size:12px;
-    word-break:break-word;
-}
-
-.image-actions{
-    padding:14px;
-    display:flex;
-    gap:10px;
-}
-
-.image-actions a{
-    flex:1;
-    text-align:center;
-    text-decoration:none;
-    color:#fff;
-    background:linear-gradient(135deg,#e79aff 0%,#4361ee 55%,#1f6fa8 100%);
-    padding:11px 12px;
-    border-radius:13px;
-    font-weight:900;
-    font-size:13px;
-}
-
-.image-actions a.secondary-link{
-    background:rgba(142,202,230,.10);
-    border:1px solid rgba(142,202,230,.28);
-}
-
-.hidden{
-    display:none !important;
-}
-
-
-.copy{
-    border:1px solid rgba(142,202,230,.34);
-    background:rgba(142,202,230,.08);
-    color:#d9f6ff;
-    padding:12px 14px;
-    border-radius:14px;
-    font-weight:850;
-    cursor:pointer;
-    transition:.25s ease;
-}
-
-.copy:hover{
-    background:rgba(142,202,230,.15);
-}
-
-.copy.copied{
-    color:#b8ffdf;
-    border-color:rgba(184,255,223,.55);
-    background:rgba(184,255,223,.10);
-}
-
 .footer{
     flex:0 0 auto;
     text-align:center;
@@ -505,27 +380,9 @@ h1{
     .shell{height:calc(100vh - 28px)}
     .topbar{align-items:flex-start;flex-direction:column}
     .hero{padding:22px}
-    
-.repo-panel.view-exit{
-    animation:viewOut .22s ease forwards;
-}
-
-.repo-panel.view-enter{
-    animation:viewIn .35s ease forwards;
-}
-
-@keyframes viewOut{
-    from{opacity:1;filter:blur(0);transform:translateY(0)}
-    to{opacity:0;filter:blur(8px);transform:translateY(14px)}
-}
-
-@keyframes viewIn{
-    from{opacity:0;filter:blur(8px);transform:translateY(14px)}
-    to{opacity:1;filter:blur(0);transform:translateY(0)}
-}
-
-.repo-list,
-.image-list{grid-template-columns:1fr}
+    .repo-list{grid-template-columns:1fr}
+    .folder-card{align-items:flex-start;flex-direction:column}
+    .folder-open{width:100%;text-align:center}
 }
 </style>
 </head>
@@ -535,25 +392,24 @@ h1{
 
 <div class="shell">
     <header class="topbar">
-        <a class="back transition-link" href="../index.html">← Back Home</a>
-        <div class="badge" id="topBadge">Kodi ZIP Repository Files</div>
+        <a class="back transition-link" href="../">← Back Home</a>
+        <div class="badge">Kodi ZIP Repository Files</div>
     </header>
 
     <section class="hero">
-        <h1 id="pageTitle">Repository Hub</h1>
-        <p id="pageText">
+        <h1>Repository Hub</h1>
+        <p>
             Download a repository ZIP below for manual Kodi installation.
         </p>
 
         <div class="tools">
             <input id="searchInput" class="search" type="text" placeholder="Search repository name...">
-            <div class="count"><span id="repoCount">0</span> <span id="countLabel">Repos</span></div>
+            <div class="count"><span id="repoCount">0</span> Repos</div>
         </div>
     </section>
 
-
-    <div class="folder-panel" id="folderPanel">
-        <button class="folder-card" id="openBackgrounds" type="button">
+    <div class="folder-panel">
+        <a class="folder-card transition-link" href="./backgrounds/">
             <div class="folder-left">
                 <div class="folder-icon">🖼️</div>
                 <div>
@@ -563,10 +419,10 @@ h1{
             </div>
 
             <div class="folder-open">Open Gallery</div>
-        </button>
+        </a>
     </div>
 
-    <main class="repo-panel" id="contentPanel">
+    <main class="repo-panel">
         <div class="repo-list" id="repoList">
 
     <article class="repo-card">
@@ -697,18 +553,17 @@ h1{
         <a class="repo-download" href="repository.thecrew-0.3.7.zip">Download ZIP</a>
     </article>
 
-</div>
-
-        <div class="image-list hidden" id="imageList"></div>
+        </div>
     </main>
 
     <div class="footer">Created by Nuxzs • All-in-One Kodi Repo Links</div>
 
     <!-- KODI VIRTUAL FILE SYSTEM SCRAPER COMPATIBILITY LAYER -->
-    <!-- This section is hidden from normal web users but reads flawlessly in Kodi File Manager -->
+    <!-- Hidden from website users. Kodi can still read these direct links and folders. -->
     <div style="display: none; visibility: hidden; opacity: 0; height: 0; width: 0; overflow: hidden;">
         <hr>
         <pre>
+<a href="backgrounds/">backgrounds/</a>
 <a href="repository.shieldrepo-1.0.3.zip">repository.shieldrepo-1.0.3.zip</a>
 <a href="repository.Golden-1.0.2.zip">repository.Golden-1.0.2.zip</a>
 <a href="repository.Bee-Queen-1.0.4.zip">repository.Bee-Queen-1.0.4.zip</a>
@@ -726,147 +581,28 @@ h1{
 <a href="repository.redwizard-1.1.7.zip">repository.redwizard-1.1.7.zip</a>
 <a href="repository.thecrew-0.3.7.zip">repository.thecrew-0.3.7.zip</a>
         </pre>
-        <div id="kodiBackgroundLinks">
-            <a href="backgrounds/">backgrounds</a><br>
-        </div>
         <hr>
     </div>
 
 <script>
-/*
-    Add or remove background images here.
-    Put the real image files inside:
-    backgrounds/
-*/
-const backgroundImages = [
-    { title: "Splash", file: "backgrounds/splash.jpg" }
-];
-
 const repoCount = document.getElementById("repoCount");
 const repoCards = document.querySelectorAll("#repoList .repo-card");
 const searchInput = document.getElementById("searchInput");
-const repoList = document.getElementById("repoList");
-const imageList = document.getElementById("imageList");
-const contentPanel = document.getElementById("contentPanel");
-const folderPanel = document.getElementById("folderPanel");
-const openBackgrounds = document.getElementById("openBackgrounds");
-const pageTitle = document.getElementById("pageTitle");
-const pageText = document.getElementById("pageText");
-const topBadge = document.getElementById("topBadge");
-const countLabel = document.getElementById("countLabel");
 
-let currentView = "repos";
-
-function setPanelAnimation(callback){
-    contentPanel.classList.remove("view-enter");
-    contentPanel.classList.add("view-exit");
-
-    setTimeout(() => {
-        callback();
-        contentPanel.classList.remove("view-exit");
-        contentPanel.classList.add("view-enter");
-    }, 220);
-}
-
-function countVisibleRepos(){
-    let visible = 0;
-    repoCards.forEach(card => {
-        if(card.style.display !== "none") visible++;
-    });
-    repoCount.textContent = visible;
-    countLabel.textContent = "Repos";
-}
-
-function countVisibleImages(){
-    const cards = document.querySelectorAll("#imageList .image-card");
-    let visible = 0;
-    cards.forEach(card => {
-        if(card.style.display !== "none") visible++;
-    });
-    repoCount.textContent = visible;
-    countLabel.textContent = "Images";
-}
-
-function renderImages(){
-    imageList.innerHTML = backgroundImages.map(img => `
-        <article class="image-card">
-            <div class="image-preview" style="background-image:url('${img.file}')"></div>
-            <div class="image-info">
-                <div class="image-name">${img.title}</div>
-                <div class="image-path">${img.file}</div>
-            </div>
-            <div class="image-actions">
-                <a href="${img.file}" target="_blank">Open</a>
-                <a class="secondary-link" href="${img.file}" download>Download</a>
-            </div>
-        </article>
-    `).join("");
-}
-
-function showRepos(){
-    currentView = "repos";
-    searchInput.value = "";
-
-    setPanelAnimation(() => {
-        repoList.classList.remove("hidden");
-        imageList.classList.add("hidden");
-        folderPanel.classList.remove("hidden");
-
-        pageTitle.textContent = "Repository Hub";
-        pageText.textContent = "Download a repository ZIP below for manual Kodi installation.";
-        topBadge.textContent = "Kodi ZIP Repository Files";
-        searchInput.placeholder = "Search repository name...";
-
-        repoCards.forEach(card => card.style.display = "flex");
-        countVisibleRepos();
-    });
-}
-
-function showBackgrounds(){
-    currentView = "backgrounds";
-    searchInput.value = "";
-
-    setPanelAnimation(() => {
-        renderImages();
-
-        repoList.classList.add("hidden");
-        imageList.classList.remove("hidden");
-        folderPanel.classList.add("hidden");
-
-        pageTitle.textContent = "Background Gallery";
-        pageText.textContent = "Preview and download Kodi splash images, wallpapers and fanart.";
-        topBadge.textContent = "Back to Repositories";
-        searchInput.placeholder = "Search background image...";
-
-        countVisibleImages();
-    });
-}
-
-openBackgrounds.addEventListener("click", showBackgrounds);
-
-topBadge.addEventListener("click", () => {
-    if(currentView === "backgrounds"){
-        showRepos();
-    }
-});
+repoCount.textContent = repoCards.length;
 
 searchInput.addEventListener("input", () => {
     const q = searchInput.value.trim().toLowerCase();
+    let visible = 0;
 
-    if(currentView === "repos"){
-        repoCards.forEach(card => {
-            const text = card.textContent.toLowerCase();
-            card.style.display = text.includes(q) ? "flex" : "none";
-        });
-        countVisibleRepos();
-    } else {
-        const cards = document.querySelectorAll("#imageList .image-card");
-        cards.forEach(card => {
-            const text = card.textContent.toLowerCase();
-            card.style.display = text.includes(q) ? "flex" : "none";
-        });
-        countVisibleImages();
-    }
+    repoCards.forEach(card => {
+        const text = card.textContent.toLowerCase();
+        const show = text.includes(q);
+        card.style.display = show ? "flex" : "none";
+        if (show) visible++;
+    });
+
+    repoCount.textContent = visible;
 });
 
 document.querySelectorAll(".transition-link").forEach(link => {
@@ -879,8 +615,6 @@ document.querySelectorAll(".transition-link").forEach(link => {
         }, 430);
     });
 });
-
-repoCount.textContent = repoCards.length;
 </script>
 </div>
 </body>
